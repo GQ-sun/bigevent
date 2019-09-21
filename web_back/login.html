@@ -27,7 +27,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        
+
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -104,10 +104,7 @@
         $('#p_result').html('用户名或密码不能为空')
         $('#myModal').modal('show')
       } else {
-        $.post('http://localhost:8000/admin/login', {
-          'user_name': user_name,
-          'password': password
-        }, function (res) {
+        user.login(user_name, password, function (res) {
           if (res.code == 200) {
             window.location.href = 'index.html'
           } else {
@@ -115,7 +112,9 @@
             $('#myModal').modal('show')
           }
         });
-      };
+
+        
+    };
 
     });
   </script>

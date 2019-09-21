@@ -25,3 +25,32 @@
 //     });
 //   }
 // };
+
+
+
+var user = {
+    /**
+     * 
+     * @param {*} user_name 用户名
+     * @param {*} password 密码
+     * @param {*} callBack 回调函数
+     */
+    login: function (user_name, password, callBack) {
+        $.post(URLIST.user_login, {
+            'user_name': user_name,
+            'password': password
+        }, function (res) {
+            callBack(res)
+        });
+    },
+    logout: function (callBack) {
+        $.post(URLIST.user_logout, function (res) {
+            callBack(res)
+        });
+    },
+    logInfo:function (callBack) {
+        $.get(URLIST.user_info, function (res){
+            callBack(res);
+        })
+      }
+}

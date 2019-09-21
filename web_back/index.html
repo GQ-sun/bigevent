@@ -201,8 +201,8 @@
     $('#btnLogout').click(function () {
       $('#myModal').modal('show');
       $('#close_yes').click(function () {
-        //调入退出接口
-        $.post('http://localhost:8000/admin/logout', function (res) {
+        user.logout(function (res) {
+          console.log(res)
           if (res.code == 200) {
             window.location.href = 'login.html'
           }
@@ -214,10 +214,10 @@
     });
     //获取用户信息
     $(function () {
-      $.get('http://localhost:8000/admin/getuser', function (res) {
-        if(code==200){
+      user.logInfo(function (res) {
+        if (res.code == 200) {
           $('#userName').html(res.data.nickname);
-        $('#userImg').attr('src',res.data.user_pic);
+          $('#userImg').attr('src', res.data.user_pic);
         };
       });
     });
