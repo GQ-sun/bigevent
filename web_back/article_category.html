@@ -143,6 +143,18 @@
             $('#divResult').hide();
             status = "添加";
         });
+        // #################编辑#################33333
+        function editTr(obj) {
+            $('#addModal').modal('show');
+            $('#addModal .modal-title').text('修改类型');
+            $('#model_add').text('保存修改');
+            status = '编辑';
+            //给文本框赋值
+            $('#category_id').val(obj.id); //隐藏域
+            $('#category_name').val(obj.name);
+            $('#category_slug').val(obj.slug);
+            $('#divResult').hide();
+        }
         // ##############新增编辑公用一个模态框###########
         $('#model_add').click(function () {
             var name = $("#category_name").val();
@@ -191,18 +203,7 @@
             }
         };
 
-        // #################编辑#################33333
-        function editTr(obj) {
-            $('#addModal').modal('show');
-            $('#addModal .modal-title').text('修改类型');
-            $('#model_add').text('保存修改');
-            status = '编辑';
-            //给文本框赋值
-            $('#category_id').val(obj.id); //隐藏域
-            $('#category_name').val(obj.name);
-            $('#category_slug').val(obj.slug);
-            $('#divResult').hide();
-        }
+        
     </script>
 
 </body>
